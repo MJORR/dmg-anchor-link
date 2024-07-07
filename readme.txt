@@ -1,55 +1,30 @@
-=== Dmg Anchor Link ===
-Contributors:      The WordPress Contributors
-Tags:              block
-Tested up to:      6.1
-Stable tag:        0.1.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+## DMG Anchor Link Gutenberg Block
 
-Example block scaffolded with Create Block tool.
+A Gutenberg block using native WP React tools (no ACF or other plugin dependencies). This block allows editors to search for and then choose a published post to insert into the editor as a stylized anchor link.
 
-== Description ==
+### Features:
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+- Editors can search posts in the InspectorControls using a search string.
+- It paginates results.
+- It supports searching for a specific post ID.
+- Recent posts are shown to choose from by default.
+- The anchor is prepended with the words `Read More: `.
+- Editors can make simple style changes.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+## WP-CLI Command: `dmg-read-more-search`
 
-== Installation ==
+Challenge: The command will execute a WP_Query search for Posts within the date range looking for posts containing the DMG Anchor Link block. Performance is key, this WP-CLI command will be tested against a database that has tens of millions of records in the wp_posts table.
 
-This section describes how to install the plugin and get it working.
+Solution: Each time the block is saved a post meta value is added. This makes it much easier to quickly find all posts or pages that have DMG Anchor Link block, rather than loop through all posts searching the content of each post. 
 
-e.g.
+### Command Usage:
 
-1. Upload the plugin files to the `/wp-content/plugins/dmg-anchor-link` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+```bash
+wp dmg-read-more-search [--date-before=<date>] [--date-after=<date>]
 
+Example
 
-== Frequently Asked Questions ==
+```bash
+wp dmg-read-more-search --date-before=08-07-2024 --date-after=01-07-2024
 
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
-== Changelog ==
-
-= 0.1.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+If no dates are given, the function defaults to the last 30 days.
