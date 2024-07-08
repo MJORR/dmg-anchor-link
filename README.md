@@ -15,7 +15,7 @@ A Gutenberg block using native WP React tools (no ACF or other plugin dependenci
 
 Challenge: The command will execute a WP_Query search for Posts within the date range looking for posts containing the DMG Anchor Link block. Performance is key, this WP-CLI command will be tested against a database that has tens of millions of records in the wp_posts table.
 
-Solution: Each time the block is saved a post meta value is added. This makes it much easier to quickly find all posts or pages that have DMG Anchor Link block, rather than loop through all posts searching the content of each post. 
+Solution: When a page or post containing a DMG Anchor Link block is saved a post meta key 'dmg-read-more' is added with the value 1. Using a simple post meta value to filter posts, makes it much easier to query all posts or pages that have DMG Anchor Link block, rather than looping and searching the content of each post. 
 
 ### Command Usage:
 
