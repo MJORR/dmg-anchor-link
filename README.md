@@ -23,7 +23,7 @@ Solution: When a page or post containing a DMG Anchor Link block is saved a post
 wp dmg-read-more-search [--date-before=<date>] [--date-after=<date>]
 ```
 
-Example
+Example:
 
 ```bash
 wp dmg-read-more-search --date-before=08-07-2024 --date-after=01-07-2024
