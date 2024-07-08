@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:       Dmg Anchor Link
+ * Plugin Name:       DMG Anchor Link
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
