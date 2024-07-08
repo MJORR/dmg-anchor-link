@@ -11,6 +11,9 @@ A Gutenberg block using native WP React tools (no ACF or other plugin dependenci
 - The anchor is prepended with the words `Read More: `.
 - Editors can make simple style changes.
 
+If an anchor link is added to a page or post, a warning is displayed in the block editor if the link no longer exists. For example if an anchor link is generated for a specific post, and that post is later deleted. 
+
+
 ## WP-CLI Command: `dmg-read-more-search`
 
 Challenge: The command will execute a WP_Query search for Posts within the date range looking for posts containing the DMG Anchor Link block. Performance is key, this WP-CLI command will be tested against a database that has tens of millions of records in the wp_posts table.
