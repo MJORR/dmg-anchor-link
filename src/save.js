@@ -13,7 +13,7 @@ export default function save({ attributes }) {
 
 	// Return the post link markup
 	return (
-		<p className="dmg-read-more" {...useBlockProps.save()}>
+		<p {...useBlockProps.save({ className: "dmg-read-more" })}>
 			{__("Read More: ", "dmg-anchor-link")}
 			<a href={link}>{title.rendered}</a>
 		</p>
